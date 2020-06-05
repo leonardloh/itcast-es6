@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //1.  let vs var
+        for (let i=0; i< 5; i++){
+            console.log(i)
+        }
+
+        // console.log("循环外:" + i)
+
+        //2. str manipulation
+        let str = "hello heima"
+        console.log(str, "中是否包含了 heima", str.includes("heima"));
+        console.log(str, "中是否包含了 baima", str.includes("baima"));
+
+        console.log(str, "中是否以 hello 开头", str.startsWith("hello"));
+        console.log(str, "中是否以 heima 开头", str.startsWith("heima"));
+
+        console.log(str, "中是否以 hello 结束", str.endsWith("hello"));
+        console.log(str, "中是否以 heima 结束", str.endsWith("heima"));
+
+        let str2 = `
+        123
+        456
+        789
+        abc
+        `
+        console.log(str2)
+
+        //3. array
+        let arr = [1, 2, 3];
+        console.log(arr[1]);
+
+        let [x,y,z] = arr;
+        console.log(x,y,z);
+
+        let[x1] = arr;
+        console.log(x1);
+
+        //4. 对象解构
+        console.log("对象解构")
+
+        const person = {
+            name: "Jack", 
+            age:21,
+            language: ['java', 'js', 'css']
+        }
+
+        let {name, age, language} = person;
+        console.log(name, age, language)
+
+        let {name: n, age: a, language: l} = person;
+        console.log(n, a, l)
+
+        // 5 函数默优化
+        function add(a, b){
+            if(!b){
+                b=1;
+            }
+            return a+b;
+        }
+        console.log(add(10,1));
+
+        function add(a, b=2){
+            return a+b;
+        }
+        console.log(add(10));
+
+        //6 箭头函数
+        function print(a){
+            console.log(a);
+        }
+
+        let print2 = a => console.log(a);
+        print("123");
+        print2("456");
+
+        let sum = (a,b) => console.log(a+b);
+        let sum2 = (a,b) => {
+            return a+b;
+        }
+        sum(10,5);
+        console.log(sum2(10,8));
+
+        let sayHello = () => console.log("hello");
+        sayHello();
+                
+        //7 属性箭头函数简写
+        let person2 = {
+            name: "jack",
+            eat: function(food){
+                console.log(this.name + " is eating " + food);
+            },
+
+            //箭头函数
+            eat2: food => console.log(person2.name + " is eating " + food),
+
+            //可以直接写函数
+            eat3 (food){
+                console.log(person2.name + " is eating " + food);
+            }
+        }
+
+        person2.eat("西瓜");
+        person2.eat2("南瓜");
+        person2.eat3("东瓜");
+
+
+        //8 箭头函数结合结构表达式
+        const person3 = {
+            name: "Jack", 
+            age:21,
+            language: ['java', 'js', 'css']
+        }
+
+        function hello(person)
+        {
+            console.log("hello " + person3.name)
+        }
+
+        hello(person3);
+
+        const hello2 = ({name}) => console.log("hello " + name);
+        hello2(person3);
+
+        
+    </script>
+</body>
+</html>

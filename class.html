@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+</head>
+<body>
+    <script>
+        class User{
+
+            constructor(name, age=20){
+                this.name = name;
+                this.age = age;
+            }
+
+            sayHello(){
+                return "hello " + this.name;
+            }
+
+            //静态函数
+            static isAdult(age){
+                if(age >= 18){
+                    return "adult"
+                }
+                return "non adult";
+            }
+        }
+
+        let user = new User("张三");
+        console.log(user);
+        console.log(user.sayHello());
+
+        //静态方法, use class name to call the method
+        console.log(User.isAdult(16));
+
+
+        class Lisi extends User {
+            constructor(){
+                super("李四", 30);
+            }
+
+            test(){
+                return "test ->" + this.name;
+            }
+        }
+
+
+        let lisi = new Lisi();
+        console.log(lisi);
+        console.log(lisi.test());
+        console.log(lisi.sayHello());
+        console.log(Lisi.isAdult(20));
+
+    </script>
+</body>
+</html>
